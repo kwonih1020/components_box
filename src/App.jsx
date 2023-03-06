@@ -1,18 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 
 import GlobalButton from "./global_elements/GlobalButton";
 import GlobalModal from "./global_elements/GlobalModal";
+import NewGlobalModal from "./global_elements/NewGlobalModal";
+import useModal from "./hooks/useModal";
+
 import styled from "styled-components";
 
-function App() {
-    const [modalOpen, setModalOpen] = useState(false);
+const Form = () => {
+    return (
+        <form>
+            <input placeholder="입력바람" />
+        </form>
+    );
+};
 
+function App() {
+    // For First Global Modal Start
+    const [modalOpen, setModalOpen] = useState(false);
     const openModal = () => {
         setModalOpen(true);
     };
     const closeModal = () => {
         setModalOpen(false);
     };
+    // ends
+
+    // For Second Global Modal Start
+    const [modalOption, showModal] = useModal();
+    const onClick = useCallback(() => {
+        showModal(
+            true,
+            "밑 form도 변경 가능함",
+            () => console.log("모달 on"),
+            null,
+            <Form />
+        );
+    }, [modalOption]);
+    // ends
 
     return (
         <div className="App">
@@ -56,6 +81,7 @@ function App() {
                 </GlobalButton>
             </Wrapper>
 
+            {/* 첫번째 모달 */}
             <h2>모달 창</h2>
             <button onClick={openModal}>모달팝업</button>
             <GlobalModal
@@ -65,6 +91,11 @@ function App() {
             >
                 여기에 내용이 들어가면 됨
             </GlobalModal>
+
+            {/* 두번째 모달 */}
+            <h2>두번째 모달 창</h2>
+            <button onClick={onClick}>모달버튼</button>
+            <NewGlobalModal modalOption={modalOption} />
         </div>
     );
 }
