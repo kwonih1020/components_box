@@ -1,27 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 
-const NewGlobalModal = ({ modalOption }) => {
+const NewGlobalModal = ({ modalOption, width }) => {
+    const { onClose, onSubmit, title, element, onClickAlert } = modalOption;
+
     return (
         <div>
             {modalOption?.show && (
                 <Wrapper>
-                    <Background onClick={() => modalOption.onClose()} />
+                    <Background onClick={() => onClose()} />
 
-                    <Contents>
+                    <Contents width={width}>
                         <Content>
-                            <h2>{modalOption?.title}</h2>
-                            {modalOption?.element}\
+                            <h2>{title}</h2>
+                            {element}
                             {/* 모달 컴포넌트 스타일링은 이렇게 준비했습니다. 모달마다 폼, 이벤트 문구, 
                             사진 등등 원하는 element구조가 있을 수 있기 때문에 h2 태그 밑에 자리를 마련해놨습니다.  */}
                         </Content>
 
                         <ButtonBox>
-                            <button onClick={() => modalOption.onSubmit()}>
-                                확인
-                            </button>
-                            <button onClick={() => modalOption.onClose()}>
-                                닫기
+                            <button onClick={() => onSubmit()}>확인</button>
+                            <button onClick={() => onClose()}>닫기</button>
+                            <button onClick={() => onClickAlert()}>
+                                alert
                             </button>
                         </ButtonBox>
                     </Contents>
@@ -54,7 +55,7 @@ const Background = styled.div`
     background-color: rgba(0, 0, 0, 0.3);
 `;
 const Contents = styled.div`
-    width: 200px;
+    width: ${(props) => props.width}px;
     padding: 15px 40px;
     background-color: #fff;
 `;

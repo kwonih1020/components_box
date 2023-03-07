@@ -7,6 +7,7 @@ import useModal from "./hooks/useModal";
 
 import styled from "styled-components";
 
+// For Second Global Modal Start
 const Form = () => {
     return (
         <form>
@@ -14,6 +15,7 @@ const Form = () => {
         </form>
     );
 };
+// ends
 
 function App() {
     // For First Global Modal Start
@@ -29,13 +31,7 @@ function App() {
     // For Second Global Modal Start
     const [modalOption, showModal] = useModal();
     const onClick = useCallback(() => {
-        showModal(
-            true,
-            "밑 form도 변경 가능함",
-            () => console.log("모달 on"),
-            null,
-            <Form />
-        );
+        showModal(true, "밑 form도 변경 가능함", () => {}, null, <Form />);
     }, [modalOption]);
     // ends
 
@@ -87,15 +83,19 @@ function App() {
             <GlobalModal
                 open={modalOpen}
                 close={closeModal}
-                header="Modal heading"
+                header="Header 제목"
+                width="100"
+                height="50"
             >
-                여기에 내용이 들어가면 됨
+                {/* 여기에 내용이 들어가면 됨 */}
+                <Form />
+                {/* 함수를 하나 만들어서 여기에 자유롭게 넣어도됨 */}
             </GlobalModal>
 
             {/* 두번째 모달 */}
             <h2>두번째 모달 창</h2>
             <button onClick={onClick}>모달버튼</button>
-            <NewGlobalModal modalOption={modalOption} />
+            <NewGlobalModal modalOption={modalOption} width={300} />
         </div>
     );
 }

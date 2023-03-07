@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const GlobalModal = (props) => {
-    const { open, close, header } = props;
+    const { open, close, header, width, height } = props;
 
     return (
-        <Wrapper>
+        <Wrapper width={width} height={height}>
             <div className={open ? "openModal modal" : "modal"}>
                 {open ? (
                     <section>
@@ -45,7 +45,8 @@ const Wrapper = styled.div`
         border: 0;
     }
     .modal > section {
-        width: 90%;
+        width: ${(props) => props.width}vw;
+        height: ${(props) => props.height}%;
         max-width: 450px;
         margin: 0 auto;
         border-radius: 0.3rem;
