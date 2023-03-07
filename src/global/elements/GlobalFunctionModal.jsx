@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const NewGlobalModal = ({ modalOption, width }) => {
+const GlobalFunctionModal = ({ modalOption, width }) => {
     const { onClose, onSubmit, title, element, onClickAlert } = modalOption;
 
     return (
@@ -67,4 +67,4 @@ const ButtonBox = styled.div`
     gap: 10px;
 `;
 
-export default NewGlobalModal;
+export default GlobalFunctionModal;

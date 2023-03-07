@@ -1,18 +1,13 @@
-# Getting Started with Create React App
+# 아토믹 디자인
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Atom
 
-## Available Scripts
+더이상 분해할 수 없는 기본 컴포넌트를 의미. (ex: Label, Input, Button)과 같이 기본 HTML Element 태그 혹은 글꼴, 애니메이션, 컬러 팔레트, 레이아웃과 같이 추상적인 요소도 포함
 
-In the project directory, you can run:
+## Molecule
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Molecule는 여러 개의 atom을 결합하여 자신의 고유한 특성을 가짐.
+예를 들어서, Input & Button 을 결합하여 Form을 molecule로 정의 할 수 있음.
 
 ### `yarn test`
 
