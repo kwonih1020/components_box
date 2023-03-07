@@ -95,7 +95,7 @@ function App() {
             {/* 두번째 모달 */}
             <h2>두번째 모달 창</h2>
             <button onClick={onClick}>모달버튼</button>
-            <NewGlobalModal modalOption={modalOption} width={300} />
+            <NewGlobalModal modalOption={modalOption} width={500} />
         </div>
     );
 }

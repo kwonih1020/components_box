@@ -7,7 +7,6 @@ const OPTION = {
     onClose: () => {}, // 모달을 끌 때마다 사용할 콜백 함수
     element: null, // 모달마다 넣고 싶은 추가 컴포넌트 자리
     onClickAlert: () => {},
-    width: "",
 };
 
 const useModal = () => {
@@ -22,8 +21,7 @@ const useModal = () => {
             onSubmitCallback,
             onCloseCallback,
             element,
-            onAlertCallback,
-            width
+            onAlertCallback
         ) => {
             setModalOption((prev) => ({
                 ...prev,
@@ -43,7 +41,6 @@ const useModal = () => {
                     setModalOption((prev) => ({ ...prev, show: false }));
                 },
                 element,
-                width,
             }));
         },
         [modalOption]
