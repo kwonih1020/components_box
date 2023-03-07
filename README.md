@@ -9,57 +9,20 @@
 Molecule는 여러 개의 atom을 결합하여 자신의 고유한 특성을 가짐.
 예를 들어서, Input & Button 을 결합하여 Form을 molecule로 정의 할 수 있음.
 
-### `yarn test`
+## Organism
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Organism은 앞 단계보다 좀 더 복잡하고 서비스에서 표현될 수 있는 명확한 영역과 특정 컨텍스트를 가집니다. 이것은 atom, molecule, organism으로 구성할 수 있습니다. 예를 들어 header 라는 컨텍스트에 logo(atom), navigation(molecule), search form(molecule)을 포함할 수 있습니다. atom, molecule에 비해 좀 더 구체적으로 표현되고 컨텍스트를 가지기 때문에 상대적으로 재사용성이 낮아지는 특성을 가집니다.
 
-### `yarn build`
+## Template
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Template은 page를 만들 수 있도록 여러 개의 organism, molecule로 구성할 수 있습니다. 실제 컴포넌트를 레이아웃에 배치하고 구조를 잡는 와이어 프레임입니다. 즉, 실제 콘텐츠가 없는 page 수준의 스켈레톤이라고 정의할 수 있습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Page는 유저가 볼 수 있는 실제 콘텐츠를 담고 있습니다. template의 인스턴스라고 할 수 있습니다. 예를 들어 장바구니 페이지에 유저가 담은 상품이 없거나 10개를 담는 다양한 template의 인스턴스를 볼 수 있습니다.
 
-### `yarn eject`
+### Molecule과 Organism 을 나누는 기준의 주관성
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Molecule은 Atom으로 구성되어 SRP에 따라 1가지 책임을 지고, organism은 atom, molecule, organism으로 구성되어 서비스에서 Layout을 기준으로 나눌 수 있는 영역을 갖습니다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+작성한 컴포넌트에 컨텍스트가 있는 경우에는 organism으로, 컨텍스트 없이 UI 적인 요소로 SRP를 지킬 수 있다면 재사용하기 쉬운 molecule로 작성합니다. 그래서 molecule의 컴포넌트 네이밍은 컨텍스트 없이 주로 UI 적인 네이밍이 포함됩니다. 반면에 organism 네이밍은 컨텍스트가 포함됩니다.

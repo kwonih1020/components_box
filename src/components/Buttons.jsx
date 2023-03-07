@@ -7,48 +7,36 @@ const Buttons = () => {
         <>
             <h2>작은 버튼</h2>
             <Wrapper>
-                <GlobalButton size="sm">기본</GlobalButton>
-                <GlobalButton variant="success" size="sm" disabled>
-                    성공
-                </GlobalButton>
-                <GlobalButton variant="error" size="sm">
-                    오류
-                </GlobalButton>
-                <GlobalButton variant="warning" size="sm">
-                    경고
-                </GlobalButton>
+                <GlobalButton size="sm" word="normal" />
+                <GlobalButton variant="success" size="sm" word="success" />
+                <GlobalButton variant="error" size="sm" word="error" />
+                <GlobalButton variant="warning" size="sm" word="warning" />
+                {/* 버튼사이에 무엇을 넣든 Global Button에서 { children } 으로 받을수 있음 */}
             </Wrapper>
             <h2>중간 버튼</h2>
             <Wrapper>
-                <GlobalButton size="md">기본</GlobalButton>
-                <GlobalButton variant="success" size="md">
-                    성공
-                </GlobalButton>
-                <GlobalButton variant="error" size="md" disabled>
-                    오류
-                </GlobalButton>
-                <GlobalButton variant="warning" size="md">
-                    경고
-                </GlobalButton>
+                <GlobalButton size="md" word="normal" />
+                <GlobalButton variant="success" size="md" word="success" />
+                <GlobalButton variant="error" size="md" disabled word="error" />
+                <GlobalButton variant="warning" size="md" word="warning" />
             </Wrapper>
             <h2>큰 버튼</h2>
             <Wrapper>
-                <GlobalButton size="lg">기본</GlobalButton>
-                <GlobalButton variant="success" size="lg">
-                    성공
-                </GlobalButton>
-                <GlobalButton variant="error" size="lg">
-                    오류
-                </GlobalButton>
-                <GlobalButton variant="warning" size="lg" disabled>
-                    경고
-                </GlobalButton>
+                <GlobalButton size="lg" word="normal" />
+                <GlobalButton variant="success" size="lg" word="success" />
+                <GlobalButton variant="error" size="lg" word="error" />
+                <GlobalButton
+                    variant="warning"
+                    size="lg"
+                    disabled
+                    word="warning"
+                />
             </Wrapper>
         </>
     );
 };
 
-const Wrapper = styled.form`
+const Wrapper = styled.div`
     max-width: 800px;
     margin: 0 auto;
     padding: 8px;

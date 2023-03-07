@@ -37,16 +37,26 @@ const VARIANTS = {
     `,
 };
 
-const GlobalButton = ({ disabled, children, size, variant }) => {
+const WORD = {
+    normal: "기본",
+    success: "성공",
+    error: "오류",
+    warning: "경고",
+};
+
+const GlobalButton = ({ disabled, children, size, variant, word }) => {
     const sizeStyle = SIZES[size];
     const variantStyle = VARIANTS[variant];
+    const words = WORD[word];
+
     return (
         <Button
             disabled={disabled}
             sizeStyle={sizeStyle}
             variantStyle={variantStyle}
         >
-            {children}
+            {words}
+            {/* {children} */}
         </Button>
     );
 };
