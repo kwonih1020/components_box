@@ -44,7 +44,7 @@ const WORD = {
     warning: "경고",
 };
 
-const GlobalButton = ({ disabled, children, size, variant, word }) => {
+const GlobalButton = ({ disabled, children, size, variant, word, onClick }) => {
     const sizeStyle = SIZES[size];
     const variantStyle = VARIANTS[variant];
     const words = WORD[word];
@@ -54,6 +54,7 @@ const GlobalButton = ({ disabled, children, size, variant, word }) => {
             disabled={disabled}
             sizeStyle={sizeStyle}
             variantStyle={variantStyle}
+            onClick={onClick}
         >
             {words}
             {/* {children} */}
